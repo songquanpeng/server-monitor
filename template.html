@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Server Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+</head>
+<body>
+<div style="margin: auto; max-width: 960px">
+    <h1 class="title" style="margin-top: 16px"><a style="color: black; text-decoration: none">Server Monitor</a></h1>
+    <div class="notification">
+        Please notice this is <strong>not a real time</strong> monitor, the update frequency depends on your client script.
+    </div>
+    <table class="table is-fullwidth is-bordered is-hoverable">
+        <thead>
+        <tr>
+            <th>Server</th>
+            <th>GPU Model</th>
+            <th>GPU Util</th>
+            <th>GPU Memory</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{$counter:=0}}
+        {{range $server := .servers}}
+            {{range $gpu := $server.GPUInfo.Gpu}}
+                <tr>
+                    <th>{{$server.Ip}}</th>
+                    <th>{{$gpu.ProductName}}</th>
+                    <th>{{$gpu.Utilization.GpuUtil}}</th>
+                    <th>{{$gpu.Utilization.MemoryUtil}}</th>
+                </tr>
+            {{end}}
+        {{end}}
+        </tbody>
+    </table>
+</div>
+
+<footer class="footer" style="background-color: white">
+    <div class="content has-text-centered" >
+        <p>
+            <strong><a href="https://github.com/songquanpeng/server-monitor">Server Monitor</a></strong> by <a href="https://github.com/songquanpeng">JustSong</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+        </p>
+    </div>
+</footer>
+</body>
+</html>
