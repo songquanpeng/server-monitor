@@ -15,7 +15,7 @@ pm2 start ./server_monitor --name server-monitor -- 80
 1. Edit the server url in `client.sh`.
 2. `chmod u+x ./client.sh`.
 3. `crontab -e`.
-4. Add a new schedule task: `* */1 * * * /path/to/client.sh` (run every 1 hour).
+4. Add a new schedule task: `0 * * * * /path/to/client.sh` (run every 1 hour).
 
 ## TODO
 - [ ] Notify specified people when specified card is available.
