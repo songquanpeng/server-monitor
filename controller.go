@@ -30,6 +30,7 @@ func postGpu(c *gin.Context) {
 			if servers[i].Ip == ip {
 				found = true
 				servers[i].GPUInfo = gpuInfo
+				break
 			}
 		}
 		if !found {
