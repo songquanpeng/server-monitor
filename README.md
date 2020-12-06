@@ -7,7 +7,7 @@ Monitor GPU usages across multi servers.
 ```shell script
 # build the server or download it from the release page
 go build
-# 
+# start server with a daemon (here we use pm2)
 pm2 start ./server_monitor --name server-monitor -- 80
 ```
 
